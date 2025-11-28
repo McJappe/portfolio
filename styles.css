@@ -160,12 +160,27 @@ nav {
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   margin-bottom: 28px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.about-me__picture--mask:hover {
+  transform: scale(2.2);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  z-index: 100;
 }
 
 .about-me__picture {
   width: 100%;
-  transform: scale(2);
-  padding-top: 14px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.5);
+  transition: transform 300ms ease;
+  border-radius: 50%;
+  display: block;
 }
 
 .about-me__info--tittle {
@@ -279,11 +294,11 @@ nav {
   transition: all 450ms ease;
   z-index: 2;
 }
-.project:hover .project__wrapper:before {
+.project__wrapper:hover::before {
   opacity: 0.7;
 }
 
-.project:hover .project__img {
+.project__wrapper:hover .project__img {
   transform: scale(1.07);
   filter: blur(5px);
 }
@@ -301,11 +316,17 @@ nav {
   z-index: 3;
   opacity: 0;
   transition: transform 450ms, opacity 300ms;
+  pointer-events: none;
 }
 
-.project:hover .project__description {
+.project__wrapper:hover .project__description {
   opacity: 1;
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+}
+
+.project__wrapper:hover .project__description--links {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .project__description--title {
@@ -315,15 +336,58 @@ nav {
 .project__description--para {
   margin: 16px 0;
 }
+
 .project__description--links {
-  font-size: 20px;
-  margin-right: 16px;
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+  position: relative;
+}
+
+.project__description--link {
+  font-size: 24px;
+  color: white !important;
+  transition: opacity 300ms ease, transform 300ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  z-index: 11;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.project__description--link i {
+  font-size: 24px;
+  color: white !important;
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.project__description--link:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.project__description--link:hover i {
+  color: white !important;
 }
 
 .project__description--title,
 .project__description--sub-title,
-.project__description--para,
-.project__description--links {
+.project__description--para {
   text-align: left;
   color: white;
 }

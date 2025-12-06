@@ -372,7 +372,6 @@ nav {
   font-size: 24px;
   color: white !important;
   display: inline-block;
-  visibility: visible;
   opacity: 1;
 }
 
@@ -381,9 +380,7 @@ nav {
   transform: translateY(-2px);
 }
 
-.project__description--link:hover i {
-  color: white !important;
-}
+
 
 .project__description--title,
 .project__description--sub-title,

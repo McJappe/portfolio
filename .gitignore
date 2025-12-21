@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
